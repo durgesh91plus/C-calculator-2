@@ -1,18 +1,17 @@
 #include <stdio.h>
+#include <math.h>
 
-int main()
-{
-    int num1, num2, result;
-     char operation;
-    char again;
+int main() {
+    float num1, num2, result;
+    char operation, again;
 
     do {
-        printf("\nSimple Calculator\n");
+        printf("\nSimple Calculator (Float Supported)\n");
 
         printf("Enter first number: ");
         scanf("%f", &num1);
 
-        printf("Enter operation (+, -, *, /,%): ");
+        printf("Enter operation (+, -, *, /, %): ");
         scanf(" %c", &operation);
 
         printf("Enter second number: ");
@@ -34,14 +33,17 @@ int main()
             if (num2 != 0) {
                 result = num1 / num2;
                 printf("Result: %.2f\n", result);
-            }
-            else {
+            } else {
                 printf("Cannot divide by 0.\n");
             }
         }
         else if (operation == '%') {
-            result = num1 %  num2;
-            printf("Result: %.2f\n", result) ;
+            if (num2 != 0) {
+                result = fmod(num1, num2);
+                printf("Result: %.2f\n", result);
+            } else {
+                printf("Cannot perform modulo by 0.\n");
+            }
         }
         else {
             printf("Invalid operation!\n");
