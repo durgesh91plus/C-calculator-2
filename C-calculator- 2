@@ -50,7 +50,7 @@ int main()
         printf("Do you want to calculate again? (y/n): ");
         scanf(" %c", &again);
 
-     while (again == 'y' || again == 'Y');
+    } while (again == 'y' || again == 'Y');
 
     printf("Calculator closed.\n");
 
